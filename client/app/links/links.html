@@ -1,3 +1,10 @@
 <div id='container'>
-  <!-- Your html here -->
+  <a href="#/shorten">Shorten</a>
+  <ul>
+    <li ng-repeat="link in data.links">{{link.code}}</li>
+  </ul>
+  <button ng-click="getLinks();">GET SOME!!!</button></br>
+
+  <pre>link, bitch - {{ data.links[0].code }}</pre>
+  <pre>Links, slut - {{ Links }}</pre>
 </div>

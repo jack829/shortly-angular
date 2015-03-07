@@ -6,19 +6,21 @@ angular.module('shortly.services', [])
     return $http({
       method: 'GET',
       url: '/api/links'
-    }).success(function(resp){
-      return resp.data;
-    });
+    })
+    // .success(function(resp){
+    //   console.log('FUCK Fuck - ', resp.data)
+    //   return resp.data.base_url + '/' + resp.data.code;
+    // });
   };
 
   var linkStumper = function(longUrl) {
     return $http({
       method: 'POST',
       url: '/api/links',
-      data: longUrl
+      data: { url: longUrl }
     })
     .then(function(resp){
-      console.log("RES from mock    ", resp.data)
+      // console.log("RES from mock    ", resp.data)
       return resp.data;
     })
   }
