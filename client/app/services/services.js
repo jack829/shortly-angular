@@ -1,21 +1,31 @@
 angular.module('shortly.services', [])
 
 .factory('Links', function ($http) {
-  // Your code here
-
 
   var linksGetter = function() {
     return $http({
       method: 'GET',
       url: '/api/links'
-    }).success(function(res){
-      console.log("RES from mock    ", res)
-      return res.data;
+    }).success(function(resp){
+      return resp.data;
     });
   };
 
+  var linkStumper = function(longUrl) {
+    return $http({
+      method: 'POST',
+      url: '/api/links',
+      data: longUrl
+    })
+    .then(function(resp){
+      console.log("RES from mock    ", resp.data)
+      return resp.data;
+    })
+  }
+
   return {
-    linksGetter: linksGetter
+    linksGetter: linksGetter,
+    linkStumper: linkStumper
   };
   
 })
