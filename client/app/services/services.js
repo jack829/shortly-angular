@@ -2,6 +2,22 @@ angular.module('shortly.services', [])
 
 .factory('Links', function ($http) {
   // Your code here
+
+
+  var linksGetter = function() {
+    return $http({
+      method: 'GET',
+      url: '/api/links'
+    }).success(function(res){
+      console.log("RES from mock    ", res)
+      return res.data;
+    });
+  };
+
+  return {
+    linksGetter: linksGetter
+  };
+  
 })
 .factory('Auth', function ($http, $location, $window) {
   // Don't touch this Auth service!!!
