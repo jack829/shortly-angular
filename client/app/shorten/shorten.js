@@ -4,12 +4,13 @@ angular.module('shortly.shorten', [])
   // Your code here
   console.log('location url - ', $location.url())
   $scope.link = {};
-  $scope.addLink = function(){
+  $scope.addLink = function(newLink){
 
-    Links.linkStumper($scope.link).then(function(res){
+    Links.linkStumper(newLink).then(function(res){
       // console.log('res -', $location.path(res.code))
       // $scope.link.base_url = $location.url(res.code).absUrl();
       // console.log('res2 -', $location.path())
+      
     })
   }
 });

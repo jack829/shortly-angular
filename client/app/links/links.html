@@ -1,8 +1,9 @@
 <div id='container'>
   <a href="#/shorten">Shorten</a>
+  <input type="text" ng-model="search.$" placeholder="How do you waste time?" ></input>
   <ul>
-    <li ng-repeat="link in data.links"><a href="http://127.0.0.1:8000/api/links/{{link.code}}">{{ link.url }} - {{ link.visits}}</a></li>
+    <li ng-repeat="link in data.links | filter: search: 'url' | orderBy: '-visits'"><a href="http://127.0.0.1:8000/api/links/{{link.code}}">{{ link.url }} - {{ link.visits }}</a></li>
   </ul>
 
-  <pre ng-repeat="link in data.links">link,  - {{ link | json }}</pre>
+  <!-- <pre ng-repeat="link in data.links">link,  - {{ link | json }}</pre> -->
 </div>

@@ -21,7 +21,7 @@ angular.module('shortly.services', [])
       url: '/api/links',
       // he doesn't use an object
       // data: { url: longUrl }
-      data: link
+      data: {url: link}
     })
     // .then(function(resp){
     //   // console.log("RES from mock    ", resp.data)
