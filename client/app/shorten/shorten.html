@@ -1,10 +1,16 @@
 <div id='container'>
 <a href="#/links">Links</a>
-  <input type="text" placeholder="Put Big Ol Link Here" ng-model="newLink"></input>
-  <button ng-click="addLink(newLink); newLink=''">Stumpit</button></br>
-  <span>FUCK!!! {{ newLink }} </span></br>
-  <span>DICK!!! {{ scope }}</span> </br>
-  <span>CUNT!!! {{ link }}</span></br>
+  
+  <form name="shortForm" ng-submit="shortForm.$valid && addLink(link.url);" novalidate>
+    <input name="link" type="url" placeholder="Put Big Ol Link Here" ng-model="link.url" required></input>
+    <input type="submit" value="Stumpit"/> 
+    <!-- ng-click="addLink(newLink); newLink=''">Stumpit</button></br> -->
+  </form>
+  
+
+  <span>Ha!!! {{ newLink }} </span></br>
+  <span>bam!!! {{ link.url }}</span> </br>
+  <span>wham!!! {{ link | json }}</span></br>
 
 </div>
 

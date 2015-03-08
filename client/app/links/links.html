@@ -1,10 +1,8 @@
 <div id='container'>
   <a href="#/shorten">Shorten</a>
   <ul>
-    <li ng-repeat="link in data.links">{{link.code}}</li>
+    <li ng-repeat="link in data.links"><a href="http://127.0.0.1:8000/api/links/{{link.code}}">{{ link.url }} - {{ link.visits}}</a></li>
   </ul>
-  <button ng-click="getLinks();">GET SOME!!!</button></br>
 
-  <pre>link, bitch - {{ data.links[0].code }}</pre>
-  <pre>Links, slut - {{ Links }}</pre>
+  <pre ng-repeat="link in data.links">link,  - {{ link | json }}</pre>
 </div>

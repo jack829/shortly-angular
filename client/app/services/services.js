@@ -3,6 +3,7 @@ angular.module('shortly.services', [])
 .factory('Links', function ($http) {
 
   var linksGetter = function() {
+    console.log('linksGetter')
     return $http({
       method: 'GET',
       url: '/api/links'
@@ -13,16 +14,19 @@ angular.module('shortly.services', [])
     // });
   };
 
-  var linkStumper = function(longUrl) {
+  var linkStumper = function(link) {
+    console.log("linkStumper")
     return $http({
       method: 'POST',
       url: '/api/links',
-      data: { url: longUrl }
+      // he doesn't use an object
+      // data: { url: longUrl }
+      data: link
     })
-    .then(function(resp){
-      // console.log("RES from mock    ", resp.data)
-      return resp.data;
-    })
+    // .then(function(resp){
+    //   // console.log("RES from mock    ", resp.data)
+    //   return resp.data;
+    // })
   }
 
   return {
